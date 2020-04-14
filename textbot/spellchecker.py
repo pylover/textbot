@@ -27,17 +27,14 @@ def make_matrix(number_of_rows, number_of_cols):
     return matrix
 
 
-source_file = open("usa.txt", "r+")
-source_words = source_file.read().splitlines()
-my_input = input()
-minimum_dist = 100
-closest_words = []
-for word in source_words:
-    lev_dist = levenshtein_distance(my_input, word)
-    if lev_dist < minimum_dist:
-        minimum_dist = lev_dist
-        closest_words = [word]
-    elif lev_dist == minimum_dist:
-        closest_words.append(word)
-print(closest_words)
-source_file.close()
+def check(database, word, mindistance=10):
+    result = []
+    for item in database:
+        distance = levenshtein_distance(word, item)
+        if distance < mindistance:
+            mindistance = distance
+            result = [item]
+        elif distance == mindistance:
+            result.append(item)
+
+    return result
