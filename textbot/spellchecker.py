@@ -29,12 +29,10 @@ def make_matrix(number_of_rows, number_of_cols):
 
 def check(database, word, mindistance=10):
     result = []
+    
     for item in database:
         distance = levenshtein_distance(word, item)
-        if distance < mindistance:
-            mindistance = distance
-            result = [item]
-        elif distance == mindistance:
+        if int(distance) < 3:
             result.append(item)
 
     return result
