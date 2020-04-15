@@ -95,3 +95,6 @@ tests/stuff/demo.txt
 
 # pytest
 .pytest_cache
+
+# Ignore Mac system files
+.DS_store
