@@ -28,8 +28,7 @@ def make_matrix(number_of_rows, number_of_cols):
 
 
 def check(database, word, mindistance=10):
-    result = []
-    
+    result = [] 
     for item in database:
         distance = levenshtein_distance(word, item)
         if int(distance) < 3:
