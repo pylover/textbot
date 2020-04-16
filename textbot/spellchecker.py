@@ -33,5 +33,4 @@ def check(database, word, mindistance=10):
         distance = levenshtein_distance(word, item)
         if int(distance) < 3:
             result.append(item)
-
     return result
