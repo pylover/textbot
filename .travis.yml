@@ -4,4 +4,5 @@ install:
     - pip install -r requirements-ci.txt
     - pip install -e .
 script: pytest -vv --cov=textbot
+after_success: coveralls
 
