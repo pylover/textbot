@@ -1,2 +1,2 @@
-pytest
+-r requirements-ci.txt
 ipython
