@@ -2,5 +2,5 @@ pytest
 coverage
 coveralls
 pytest-cov
-
+pytest-localserver
 
