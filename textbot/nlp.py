@@ -1,7 +1,7 @@
 import spacy
 
 
-def speechtagging(input):
+def tag(input):
     result = []
     nlp = spacy.load("en_core_web_sm")
     doc = nlp(input)
