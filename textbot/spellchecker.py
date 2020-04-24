@@ -13,6 +13,7 @@ class SpellChecker:
                     matrix[i][j] = matrix[i - 1][j - 1]
                 else:
                     matrix[i][j] = min(matrix[i - 1][j], matrix[i - 1][j - 1], matrix[i][j - 1]) + 1
+                    
         return matrix[number_of_rows - 1][number_of_cols - 1]
 
 
