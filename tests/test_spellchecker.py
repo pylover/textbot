@@ -1,4 +1,4 @@
-from textbot import spellcheck
+from textbot import SpellChecker
 
 
 DB = [
@@ -19,5 +19,6 @@ DB = [
 
 
 def test_correctword():
-    assert spellcheck(DB, 'bar') == ['bar', 'baz']
-    assert spellcheck(DB, 'qux') == ['qux', 'quux', 'quuz']
+    checker = SpellChecker(DB)
+    assert checker.check('bar') == ['bar', 'baz']
+    assert checker.check('qux') == ['qux', 'quux', 'quuz']
