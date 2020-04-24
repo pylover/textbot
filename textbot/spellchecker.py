@@ -12,13 +12,20 @@ class SpellChecker:
                 if first_string[j - 1] == second_string[i - 1]:
                     matrix[i][j] = matrix[i - 1][j - 1]
                 else:
-                    matrix[i][j] = min(matrix[i - 1][j], matrix[i - 1][j - 1], matrix[i][j - 1]) + 1
+                    matrix[i][j] = min(
+                        matrix[i - 1][j], 
+                        matrix[i - 1][j - 1], 
+                        matrix[i][j - 1]
+                    ) + 1
                     
         return matrix[number_of_rows - 1][number_of_cols - 1]
 
 
     def make_matrix(self, number_of_rows, number_of_cols):
-        matrix = [[0 for x in range(number_of_cols)] for y in range(number_of_rows)]
+        matrix = [
+            [0 for x in range(number_of_cols)] 
+            for y in range(number_of_rows)
+        ]
         for row in matrix:
             for num in row:
                 num = 0
