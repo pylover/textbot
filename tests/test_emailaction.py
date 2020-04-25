@@ -1,10 +1,10 @@
-from textbot import EmailAction, nlp
+from textbot import action,router
 
 
 def test_router():
     assert isinstance(
-        nlp.assignaction(nlp.tag("send an Email to Parsa.")), EmailAction
+        router.assignaction(router.tag("send an Email to Parsa.")),action.EmailAction
     )
     assert isinstance(
-        nlp.assignaction(nlp.tag("send an email to sarah.")), EmailAction
+        router.assignaction(router.tag("send an email to sarah.")),action.EmailAction
     )
