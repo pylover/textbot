@@ -2,7 +2,7 @@ import spacy
 from .action import EmailAction
 
 
-def tag(input):
+def parse(input):
     result = []
     nlp = spacy.load("en_core_web_sm")
     doc = nlp(input)

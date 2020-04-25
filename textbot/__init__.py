@@ -1,6 +1,6 @@
 from .spellchecker import SpellChecker
 from .emailagent import EmailAgent
-from .router import tag
+from .router import parse
 from .action import EmailAction
 
 
