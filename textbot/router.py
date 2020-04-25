@@ -1,5 +1,5 @@
 import spacy
-from .emailaction import EmailAction
+from .action import EmailAction
 
 
 def tag(input):
