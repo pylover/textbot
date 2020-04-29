@@ -4,25 +4,20 @@ import plac
 from spacy.cli import download
 
 
-
-def foo():  # pragma: no cover
-    print(" ".join(sys.argv))
-
-
 languages = {
-    "English": "en_core_web_sm",
-    "German": "de_core_news_sm",
-    "French": "fr_core_news_sm",
-    "Spanish": "es_core_news_sm",
-    "Multi-language": "xx_ent_wiki_sm",
+    'english': 'en_core_web_sm',
+    'german': 'de_core_news_sm',
+    'french': 'fr_core_news_sm',
+    'spanish': 'es_core_news_sm',
+    'multi-language': 'xx_ent_wiki_sm',
 }
 
 
-class Download(easycli.SubCommand):
-    __command__ = "download"
+class DownloadSpacyDatabase(easycli.SubCommand):
+    __command__ = 'getdb'
     __arguments__ = [
         easycli.Argument(
-            "language", default="English", help="Language that you want",
+            'language', default='english', help='Language that you want',
         ),
     ]
 
@@ -31,14 +26,14 @@ class Download(easycli.SubCommand):
         plac.call(download, [language])
 
 
-class Textbot(easycli.Root):
+class TextBot(easycli.Root):
     __completion__ = True
-    __help__ = "A simple text assistant"
+    __help__ = 'A simple text assistant'
     __arguments__ = [
         easycli.Argument(
-            "-v", "--version", action="store_true", help="Show version"
+            '-v', '--version', action='store_true', help='Show version'
         ),
-        Download,
+        DownloadSpacyDatabase,
     ]
 
     def __call__(self, args):

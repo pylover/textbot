@@ -1,13 +1,9 @@
-import sys
-
-import pytest
-from bddcli import Given, given, when, stdout, status, stderr, Application
-from textbot import Download
+from bddcli import Given, stdout, Application
 
 from textbot import __version__
 
 
-app = Application('textbot', 'textbot.cli:Textbot.quickstart')
+app = Application('textbot', 'textbot.cli:TextBot.quickstart')
 
 
 
