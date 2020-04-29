@@ -1,7 +1,5 @@
 import easycli
-import plac
 
-from spacy.cli import download
 
 
 languages = {
@@ -21,9 +19,10 @@ class DownloadSpacyDatabase(easycli.SubCommand):
         ),
     ]
 
-    def __call__(args):
+    def __call__(self, args):
+        from spacy.cli import download
         language = languages[args.language]
-        plac.call(download, [language])
+        download(language)
 
 
 class TextBot(easycli.Root):

@@ -14,7 +14,7 @@ setup(
     license='MIT',
     entry_points={
         'console_scripts': [
-            'textbot = textbot.cli:Textbot.quickstart',
+            'textbot = textbot.cli:TextBot.quickstart',
         ]
     }
 
