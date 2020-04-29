@@ -27,8 +27,7 @@ class DownloadSpacyDatabase(easycli.SubCommand):
 
         if args.language:
             try:
-                language = languages[args.language]
-                download(language)
+                download(languages[args.language])
             except:
                 print('We dont find your choice in our database')
 
