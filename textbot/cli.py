@@ -4,8 +4,6 @@ import plac
 from spacy.cli import download
 
 
-_version__ = "0.1.0"
-
 
 def foo():  # pragma: no cover
     print(" ".join(sys.argv))
@@ -45,6 +43,7 @@ class Textbot(easycli.Root):
 
     def __call__(self, args):
         if args.version:
+            from textbot import __version__
             print(__version__)
             return
 
