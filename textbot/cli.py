@@ -14,7 +14,7 @@ languages = {
 class DownloadSpacyDatabase(easycli.SubCommand):
     __command__ = 'getdb'
     __arguments__ = [
-        # FIXME: Add an argument to print the list of available languages"
+        # FIXME: Add an argument to print the list of available languages
         easycli.Argument(
             'language', default='english', help='Language that you want',
         ),
@@ -22,7 +22,7 @@ class DownloadSpacyDatabase(easycli.SubCommand):
 
     def __call__(self, args):
         from spacy.cli import download
-        # FIXME: Print appropriate error message if language not found"
+        # FIXME: Print appropriate error message if language not found
         language = languages[args.language]
         download(language)
 
