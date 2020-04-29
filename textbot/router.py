@@ -1,4 +1,5 @@
 import spacy
+
 from .action import EmailAction
 
 
@@ -13,7 +14,7 @@ def parse(input):
     return result
 
 
-def assignaction(names):
+def specifyaction(names):
     for item in names:
         if item.lower() == 'email':
             emailinstance = EmailAction()
