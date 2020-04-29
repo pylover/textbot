@@ -8,7 +8,14 @@ setup(
     description='Simple text assistant using Python',
     packages=['textbot'],
     install_requires=[
-        'spacy'
+        'spacy',
+        'easycli'
     ],
-    license='MIT'
+    license='MIT',
+    entry_points={
+        'console_scripts': [
+            'textbot = textbot.cli:Textbot.quickstart',
+        ]
+    }
+
 )
