@@ -1,5 +1,5 @@
 class SpellChecker:
-    
+
     def __init__(self, database):
         self.database = database
 
@@ -40,11 +40,15 @@ class SpellChecker:
         return matrix
 
 
-    def check(self, word, maxdistance=3):
+    def check(self, word, ignorance=0.34):
+        """
+        :param ignorance: Number of allowed mistakes per character
+        """
+        maxdistance = len(word) * ignorance + 1
         result = []
         for item in self.database:
             distance = self.levenshtein_distance(word, item)
-            if distance < maxdistance:
+            if distance <= maxdistance:
                 result.append(item)
 
         return result
