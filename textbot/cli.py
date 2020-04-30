@@ -1,5 +1,5 @@
 import easycli
-
+from bddcli import stdout
 
 
 languages = {
@@ -14,17 +14,26 @@ languages = {
 class DownloadSpacyDatabase(easycli.SubCommand):
     __command__ = 'getdb'
     __arguments__ = [
-        # FIXME: Add an argument to print the list of available languages
+        easycli.Argument('-language', help='Language that you want',),
         easycli.Argument(
-            'language', default='english', help='Language that you want',
+            '-list',
+            action='store_true',
+            help='List of language that you can choose',
         ),
     ]
 
     def __call__(self, args):
         from spacy.cli import download
-        # FIXME: Print appropriate error message if language not found
-        language = languages[args.language]
-        download(language)
+
+        if args.language:
+            try:
+                download(languages[args.language])
+            except:
+                print('We dont find your choice in our database')
+
+        if args.list:
+            print('You can choose the language that is in list')
+            print(', '.join(list(languages.keys())))
 
 
 class TextBot(easycli.Root):
@@ -40,6 +49,7 @@ class TextBot(easycli.Root):
     def __call__(self, args):
         if args.version:
             from textbot import __version__
+
             print(__version__)
             return
 
