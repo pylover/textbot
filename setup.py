@@ -8,7 +8,6 @@ setup(
     description='Simple text assistant using Python',
     packages=['textbot'],
     install_requires=[
-        'spacy',
         'easycli'
     ],
     license='MIT',

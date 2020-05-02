@@ -1,21 +1,19 @@
-import spacy
-from .action import EmailAction
+import re
+
+from .agents import EmailAgent
 
 
-def parse(input):
-    result = []
-    nlp = spacy.load('en_core_web_sm')
-    doc = nlp(input)
-
-    for token in doc:
-        if token.pos_ == 'NOUN':
-            result.append(token.text)
-    return result
+def route(command):
+    for pattern, agent in patterns:
+        if pattern.match(command):
+            return agent
 
 
-def assignaction(names):
-    for item in names:
-        if item.lower() == 'email':
-            emailinstance = EmailAction()
-            return emailinstance
+patterns = [
+    (
+        '^(?P<verb>\w{2,}) (an|a)?(?P<subject>\w+) .* (?P<target>\w+)$',
+        EmailAgent
+    ),
+]
+patterns = [(re.compile(p), a) for p, a in patterns]
 

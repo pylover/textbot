@@ -3,8 +3,6 @@ python: 3.6
 install:
     - pip install -r requirements-ci.txt
     - pip install -e .
-    # TODO:  Remove this line after implementing the CLI
-    - python -m spacy download en_core_web_sm
 script: pytest -vv --cov=textbot
 after_success: coveralls
 
