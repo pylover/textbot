@@ -2,7 +2,7 @@ from textbot import EmailAgent
 
 
 def test_emailagent(smtpserver):
-    host, port = smtpserver.addr
+    host, port = smtpserver.addr[:2]
     username = 'foo@example.com'
     password = 'foo'
     agent = EmailAgent(host, port, username, password)
